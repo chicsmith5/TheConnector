@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>The Connector</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+     <link href="about.css" rel="stylesheet">
+
+
+
+
+    <style>
+      
+body {
+   
+    margin: 0rem;
+    min-height: 100vh;
+    font-family: Futura, sans-serif;
+}
+#canvas, #text {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+#text {
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 8vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#text h1 {
+    opacity: 0.9
+}
+
+body {
+  background-color: black;
+}
+
+.jumbotron {
+  background-color: black;
+}
+
+
+.full-width-img {
+  background: url('http://boothudall.com/wp-content/uploads/Business-Meeting-2.jpg') no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 100px;
+  height: 750px;
+  color: #fff;
+}
+
+.box {
+  background: rgba(0, 0, 0, 0.25);
+  /*border: 3px solid #222222;*/
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 30px 10px 0px;
+}
+
+
+.subheading-text {
+  list-style: none;
+  font-size: 35px;
+  line-height: 50px;
+}
+
+@media (min-width: 768px) {
+
+  .full-width-img {
+    padding-top: 110px;
+    height: 1000px;
+  }
+
+  .subheading-text {
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  .box {
+    margin-top: 100px;
+    padding: 80px 20px;
+  }
+}
+/* # Section Black, White
+================================ */
+
+.section-black,
+.section-white {
+  padding: 50px 0;
+  color: #fff;
+  line-height: 1.7;
+}
+
+.section-black h3,
+.section-white h3 {
+  margin-bottom: 60px;
+}
+
+.section-black p,
+.section-white p {
+  margin-bottom: 60px;
+}
+
+.section-black {
+  background: linear-gradient(#363437, #121112);
+}
+
+.section-white {
+  background: linear-gradient(#ffffff, #f3f3f3);
+  color: #0e0d0e;
+}
+
+body{
+  font-family: Arial;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #000000;
+}
+
+.footer {
+  padding: 15px;
+  color: #ffffff;
+  background: #000000;
+}
+.footer__text {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.offices, .offices--one, .offices--two, .offices--three {
+  padding: 10px 20px;
+  margin-bottom: 40px;
+}
+.offices:last-child, .offices--one:last-child, .offices--two:last-child, .offices--three:last-child {
+  margin-bottom: 0;
+}
+.offices__item, .offices--one__item, .offices--two__item, .offices--three__item {
+  position: relative;
+  display: block;
+  float: left;
+  width: 50px;
+  height: 25px;
+  margin-right: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.55px;
+  text-decoration: none;
+}
+.offices__item:last-child, .offices--one__item:last-child, .offices--two__item:last-child, .offices--three__item:last-child {
+  margin-right: 0;
+}
+.offices__name, .offices--one__name, .offices--two__name, .offices--three__name, .offices__time, .offices--two__time, .offices--three__time {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  text-align: center;
+}
+.offices__name, .offices--one__name, .offices--two__name, .offices--three__name {
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  -webkit-transition: height 500ms ease;
+  transition: height 500ms ease;
+}
+.offices__time, .offices--two__time, .offices--three__time {
+  background: #000000;
+}
+.offices--one__item:hover .offices__name, .offices--one__item:hover .offices--one__name, .offices--one__item:hover .offices--two__name, .offices--one__item:hover .offices--three__name {
+  height: 1px;
+}
+.offices--one__name::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+  content: '';
+}
+.offices--two, .offices--three {
+  padding-top: 0;
+  background: transparent;
+  border-top: 1px solid #ffffff;
+}
+.offices--two__item, .offices--three__item {
+  line-height: 35px;
+  height: 35px;
+}
+.offices--two__name, .offices--three__name {
+  padding: 10px 0;
+}
+.offices--two__time, .offices--three__time {
+  top: -1px;
+  line-height: 45px;
+  border: 1px solid #ffffff;
+  border-top: none;
+  overflow: hidden;
+  height: 0 !important;
+  -webkit-transition: height 500ms ease, opacity 10ms ease;
+  transition: height 500ms ease, opacity 10ms ease;
+}
+.offices--two__item:hover .offices--two__time {
+  height: 45px !important;
+}
+.offices--two__time {
+  color: #ffffff;
+  background: none;
+}
+.offices--three__item:hover .offices--three__time {
+  height: 45px !important;
+}
+.offices--three__time {
+  border-left: none;
+  border-right: none;
+}
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black fixed-top" style="background-color: black;">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="the connector.PNG" style="height: 60px; width: 80px;"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="partners.html">Partners</a>
+            </li>
+                 </li>
+               <li class="nav-item">
+              <a class="nav-link" href="careers.html">Careers</a>
+            </li>
+        
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!--     <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox"> -->
+          <!-- Slide One - Set the background image for this slide in the line below -->
+   <!--        <div class="carousel-item active" style="background-image: url('the connector.PNG');">
+            <canvas id="canvas"></canvas>
+<div id="text">
+  <h1 style="color: black;">The Connector</h1>
+</div>
+          </div> -->
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <!-- <div class="carousel-item" style="background-image: url('http://www.1woodadvisors.com/static/img/home_bg/boston_background.jpg'); width:100%;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Second Slide</h3>
+              <p>This is a description for the second slide.</p>
+            </div>
+
+
+          </div> -->
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+        <!--   <div class="carousel-item" style="background-image: url('http://cdn.wonderfulengineering.com/wp-content/uploads/2016/01/washington-wallpaper-4.jpg'); width:100%;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Third Slide</h3>
+              <p>This is a description for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+ -->
+
+
+
+
+
+  <section class="full-width-img">
+        <div id="text">
+            <canvas id="canvas"></canvas>
+
+    <div class="container">
+      <div class="box">
+        <ul class="subheading-text">
+          <!-- <li>The Connector</li> -->
+          <li style="font-size: 60px; font-family: Arial;"><small>Bringing ideas to reality</small></li>
+           <a class="btn btn-primary btn-lg" href="#contact"  style="background-color: #222222; border: 1px  white;" role="button" style="border-radius: 50%;"><small>Start Today</small></a>
+
+          <!-- <li>Sticky Header</li> -->
+        </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+
+<!-- 
+<div class="jumbotron"  style="height: 830px; border-bottom: 1px solid; border-color: #222222; color: white;">
+    <div id="text"></div>
+<div class="carousel-item active" style="background-image: url('the connector.PNG');">
+            <canvas id="canvas"></canvas>
+</div>
+  <h1 class="display-3" style="text-align: center; font-size: 40px; margin-top: 80px;">The Connector</h1>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+</div>
+ -->
+
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+    <!-- <div class="" style=" padding: 80px;">
+
+      <h1 class="my-4" style="color: white;">What We do</h1> -->
+
+      <!-- Marketing Icons Section -->
+      <!-- <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100" style="background-color: black; color: white;">
+            <h4 class="card-header">Card Title</h4>
+            <div class="card-body" style="border-top: 1px solid; border-color: red; ">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Card Title</h4>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Card Title</h4>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- /.row -->
+
+      <!-- Portfolio Section -->
+      <!-- <h2>Portfolio Heading</h2>
+
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project One</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Three</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Four</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Five</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Six</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- /.row -->
+
+
+
+
+
+ <section class="container" id="services" style="border-bottom: 1px solid; border-color: #222222; color: white; background-color: ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3 class="section-heading" style="margin-bottom: 80px;">Locations</h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-3">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="http://s3.amazonaws.com/cmi-reflex-production/landing_pages/images/000/000/002/full/Boston_Skyline_Night_BW.jpg?1413908878" style="height: 200px; width:220px; border-radius: 50%;">
+            <h4 class="service-heading">Boston</h4>
+            
+          </div>
+          <div class="col-md-3">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="http://dodskypict.com/D/New-York-City-Black-And-White-Wallpaper-On-Wallpaper-Hd-3.jpg" style="height: 200px; width:220px; border-radius: 50%;">
+            <h4 class="service-heading">New York City</h4>
+
+          </div>
+          <div class="col-md-3">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="https://d28mt5n9lkji5m.cloudfront.net/i/Vh-z-32VvI.jpg" style="height: 200px; width:220px; border-radius: 50%;">
+            <h4 class="service-heading">Washington D.C.</h4>
+
+          </div>
+          <div class="col-md-3">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+            </span>
+             <img src="http://static.hdw.eweb4.com/media/wallpapers_dl/1/111/1105353-los-angeles-black-and-white.jpg" style="height: 200px; width:220px; border-radius: 50%;">
+            <h4 class="service-heading">Los Angeles</h4>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+      <!-- Features Section -->
+      <container class="container" id="contact">
+      <div class="container" style="margin-top: 100px;">
+      <div class="row">
+        <div class="col-lg-6" style="color:white; font-family: Arial;">
+          <h3 style="text-align: center;">Have an Idea?</h3>
+          <p style="text-align: center;">Send us an email and tell us more</p>
+          <ul>
+            <li>Need funding?</li>
+            <br>
+            <li>Need a go to market strategy?</li>
+            <br>
+            <li>Need a business plan?</li>
+            <br>
+            <li>Looking to grow your network?</li>
+            <br>
+            <li><strong>Join our team</strong></li>
+          </ul>
+        <!--   <p style="margin-bottom: 70px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p> -->
+        
+        </div>
+        <div class="col-lg-6">
+          <!-- <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""> -->
+           <div class="container" style="background-color: black; color: white; padding:20px; border-left: 1px solid; border-color: #222222">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3 class="section-heading">Contact Us</h3>
+        <!--     <h3 class="section-subheading text-muted" style="font-size: 15px; text-decoration-line: underline;">Send us your idea</h3> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" action="mailto:trent@pinxterapp.com">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="text" placeholder="Your Name " required data-validation-required-message="Please enter your name." style="background-color: black;">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email " required data-validation-required-message="Please enter your email address." style="background-color: black;">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone " required data-validation-required-message="Please enter your phone number." style="background-color: black;">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder="Your idea " required data-validation-required-message="Please enter a message." style="background-color: black;"></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-xl" type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Call to Action Section -->
+      <!-- <div class="row mb-4" style="color:white;">
+        <div class="col-md-8">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-lg btn-secondary btn-block" style="background-color: blue; border: 1px solid; border-color: black;" href="https://www.linkedin.com/company/11042967/">LinkedIn</a>
+        </div>
+      </div>
+
+    </div> -->
+  </container>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black" style="background-color: black; border-top: 1px solid; border-color:  #222222;">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; The Connector LLC 2017</p>
+         <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="https://www.linkedin.com/company/11042967/" style="border:1px solid; border-color: white; margin-top: 20px;">
+                    <i class="fa fa-twitter">in</i>
+                  </a>
+                </li>
+              </ul>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+
+
+  <script type="text/javascript">
+    
+let resizeReset = function() {
+    w = canvasBody.width = window.innerWidth;
+    h = canvasBody.height = window.innerHeight;
+}
+
+const opts = { 
+    particleColor: "rgb(200,200,200)",
+    lineColor: "rgb(110,110,110)",
+    backgorundColor: "black",
+    particleAmount: 30,
+    defaultSpeed: 1,
+    variantSpeed: 1,
+    defaultRadius: 2,
+    variantRadius: 2,
+    linkRadius: 300,
+};
+
+window.addEventListener("resize", function(){
+    deBouncer();
+});
+
+let deBouncer = function() {
+    clearTimeout(tid);
+    tid = setTimeout(function() {
+        resizeReset();
+    }, delay);
+};
+
+let checkDistance = function(x1, y1, x2, y2){ 
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+};
+
+let linkPoints = function(point1, hubs){ 
+    for (let i = 0; i < hubs.length; i++) {
+        let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
+        let opacity = 1 - distance / opts.linkRadius;
+        if (opacity > 0) { 
+            drawArea.lineWidth = 0.5;
+            drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
+            drawArea.beginPath();
+            drawArea.moveTo(point1.x, point1.y);
+            drawArea.lineTo(hubs[i].x, hubs[i].y);
+            drawArea.closePath();
+            drawArea.stroke();
+        }
+    }
+}
+
+Particle = function(xPos, yPos){ 
+    this.x = Math.random() * w; 
+    this.y = Math.random() * h;
+    this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed; 
+    this.directionAngle = Math.floor(Math.random() * 360); 
+    this.color = opts.particleColor;
+    this.radius = opts.defaultRadius + Math.random() * opts. variantRadius; 
+    this.vector = {
+        x: Math.cos(this.directionAngle) * this.speed,
+        y: Math.sin(this.directionAngle) * this.speed
+    };
+    this.update = function(){ 
+        this.border(); 
+        this.x += this.vector.x; 
+        this.y += this.vector.y; 
+    };
+    this.border = function(){ 
+        if (this.x >= w || this.x <= 0) { 
+            this.vector.x *= -1;
+        }
+        if (this.y >= h || this.y <= 0) {
+            this.vector.y *= -1;
+        }
+        if (this.x > w) this.x = w;
+        if (this.y > h) this.y = h;
+        if (this.x < 0) this.x = 0;
+        if (this.y < 0) this.y = 0; 
+    };
+    this.draw = function(){ 
+        drawArea.beginPath();
+        drawArea.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+        drawArea.closePath();
+        drawArea.fillStyle = this.color;
+        drawArea.fill();
+    };
+};
+
+function setup(){ 
+    particles = [];
+    resizeReset();
+    for (let i = 0; i < opts.particleAmount; i++){
+        particles.push( new Particle() );
+    }
+    window.requestAnimationFrame(loop);
+}
+
+function loop(){ 
+    window.requestAnimationFrame(loop);
+    drawArea.clearRect(0,0,w,h);
+    for (let i = 0; i < particles.length; i++){
+        particles[i].update();
+        particles[i].draw();
+    }
+    for (let i = 0; i < particles.length; i++){
+        linkPoints(particles[i], particles);
+    }
+}
+
+const canvasBody = document.getElementById("canvas"),
+drawArea = canvasBody.getContext("2d");
+let delay = 200, tid,
+rgb = opts.lineColor.match(/\d+/g);
+resizeReset();
+setup();
+
+
+
+
+$(window).scroll(function () {
+  var sc = $(window).scrollTop()
+  if (sc > 150) {
+    $("#main-navbar").addClass("navbar-scroll")
+  } 
+  else {
+    $("#main-navbar").removeClass("navbar-scroll")
+  }
+});
+
+  </script>
+
+</html>
